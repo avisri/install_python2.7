@@ -26,6 +26,14 @@ echo $?
 echo "#installed python2.7 on $(date +%D) " >> ~/.bashrc
 echo 'export PATH="/usr/local/bin:$PATH"' >> ~/.bashrc
 . ~/.bashrc
+
+###hmm might be just for reinstall 
+cat > /etc/ld.so.conf.d/python2.7 <<EOF
+/usr/local/lib
+EOF
+ldconfig
+ldd /usr/local/bin/python2.7
+
 #validation
 which python2.7
 python2.7  -V
