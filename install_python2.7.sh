@@ -16,7 +16,8 @@ rm -vf Python-2.7.9.tar
 xz -d Python-2.7.9.tar.xz
 tar xvf Python-2.7.9.tar
 cd Python-2.7.9
-./configure --prefix=/usr/local
+#--enable-shared is needed for mod_wsgi recompile
+./configure --prefix=/usr/local --enable-shared
 make
 #install to /usr/local/ dont overwrite the system default
 make altinstall
