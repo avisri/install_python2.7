@@ -32,6 +32,8 @@ cat > /etc/ld.so.conf.d/python2.7 <<EOF
 /usr/local/lib
 EOF
 ldconfig
+#for rhel 6 it was not enough to just call the ldconfig 
+ldconfig /usr/local/lib
 ldd /usr/local/bin/python2.7
 
 #validation
