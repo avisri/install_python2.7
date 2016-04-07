@@ -44,4 +44,6 @@ python2.7  -c   'print "hello world";'
 ln -s  /usr/local/bin/python2.7 /usr/local/bin/python
 which python
 python -V
-curl https://raw.githubusercontent.com/pypa/pip/master/contrib/get-pip.py | python2.7 -
+#curl https://raw.githubusercontent.com/pypa/pip/master/contrib/get-pip.py | python2.7 -
+#pip 8.1 
+curl --silent --show-error --retry 5 https://bootstrap.pypa.io/get-pip.py | sudo python2.7
