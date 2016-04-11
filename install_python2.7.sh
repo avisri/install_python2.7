@@ -1,6 +1,7 @@
 
 #!/bin/bash
 
+set -o errexit
 yum install -y zlib-dev openssl-devel sqlite-devel bzip2-devel
 yum install xz-libs
 pkg="Python-2.7.9.tar.xz"
@@ -46,4 +47,11 @@ which python
 python -V
 #curl https://raw.githubusercontent.com/pypa/pip/master/contrib/get-pip.py | python2.7 -
 #pip 8.1 
+curl https://bootstrap.pypa.io/get-pip.py | md5sum |awk '{print $1}' | grep ^8a0fa2bd9e5d762daaf56f32fb3f9b3e$  && {
+    echo "md5sum matched . installing.."
+  }  || {
+    echo "md5sum did not match .. exiting .."
+    exit 1
+  }
+
 curl --silent --show-error --retry 5 https://bootstrap.pypa.io/get-pip.py | sudo python2.7
